@@ -12,3 +12,35 @@
   'yellow': '#F1A501', 2nd button
   'beige': '#FFF1DA', blobs
 */
+
+/* Accessibility */
+*:focus { 
+  outline: 0.1em #DF6951 solid;
+  outline-offset: 0.1rem;
+}
+
+*:focus:not(:focus-visible) {
+  outline: 0;
+  outline-offset: 0.25rem;
+}
+
+*:focus-visible { 
+  outline: 0.25em #DF6951 dashed;
+  outline-offset: 0.25rem;
+}
+
+/* End of Accessibility */
+/* Link animation */
+a { display: inline-block;}
+a:after {
+  display:block;
+  content: '';
+  width: inherit;
+  border-bottom: solid 3px #1E1D4C;  
+  transform: scaleX(0);  
+  transition: transform 250ms ease-in-out;
+}
+a:hover:after { transform: scaleX(1); }
+a.from-left:after { transform-origin: left; }
+a.from-right:after { transform-origin: right; }
+/* End of link animation */
