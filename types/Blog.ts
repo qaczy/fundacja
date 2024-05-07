@@ -1,6 +1,6 @@
 import { PortableTextBlock } from "@sanity/types";
 
-export type Project = {
+export type Blog = {
 	
 	_id: string;
 
@@ -12,7 +12,7 @@ export type Project = {
 
 	image: string;
 	
-	url: string;
+	intro: PortableTextBlock[];
 
 	content: PortableTextBlock[];
 

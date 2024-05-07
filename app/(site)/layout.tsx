@@ -1,24 +1,29 @@
 /** @format */
 
+import "../globals.css";
 import Link from "next/link";
-import "./globals.css";
 import Image from "next/image";
+import { getPages } from "@/sanity/sanity-utils";
 
 export const metadata = {
 	title: "Fundacja",
 	description: "Opis",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
 	children,
 }: {
 	children: React.ReactNode;
 }) {
+
+	// get all pages
+	const pages = await getPages();
+
 	return (
 		<html lang="en">
-			<body className="bg-beige">
+			<body className="bg-white">
 
-				<header className="p-4 flex justify-between content-center">
+				<header className="p-4 flex justify-between content-center ">
 
 					{/* Logo */}
 					<Link href="/"
@@ -30,10 +35,15 @@ export default function RootLayout({
 
 					{/* Navigation */}
 					<nav className="w-2/5 flex justify-around" role="menubar" aria-label="Główne menu strony">
-						<Link href="/" role="menuitem" className="text-xl content-center">O nas</Link>
-						<Link href="/" role="menuitem" className="text-xl content-center">Aktualności</Link>
-						<Link href="/" role="menuitem" className="text-xl content-center">Blog</Link>
-						<Link href="/" role="menuitem" className="text-xl content-center">Kontakt</Link>
+						{pages.map((page) =>  (
+							<Link 
+								key={page._id}
+								href={`/${page.slug}`}
+								role="menuitem" 
+								className="text-xl content-center">
+									{page.title}
+							</Link>
+						))}
 					</nav>
 					{/* End of Navigation */}
 
@@ -71,7 +81,7 @@ export default function RootLayout({
 								<Image
 									src="/contrast-yellow.svg"
 									alt="Kontrast strony niebieski zółty"
-									width={24}
+									width={24} 
 									height={24}
 									priority
 								/>
@@ -80,10 +90,17 @@ export default function RootLayout({
 						{/* End of Accesibility - Changing contrast */}
 					</section>
 					{/* End of Accesibility */}
-
+					<Image
+						src="/decore.svg"
+						alt="Element dekoracyjny"
+						className="absolute top-0 right-0 -z-50"
+						width={768}
+						height={100}
+						priority
+					/>
 				</header>
 
-				<main className="max-w-5xl mx-auto py-20">{children}</main>
+				<main className="max-w-6xl mx-auto pt-5 pb-20">{children}</main>
 
 			</body>
 		</html>

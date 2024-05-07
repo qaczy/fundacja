@@ -1,11 +1,11 @@
-const project = {
-    name: "project",
-    title: "Projects",
+const blog = {
+    name: "blog",
+    title: "Blog",
     type: "document",
     fields: [
         {
             name: "name",
-            title: "Name",
+            title: "Tytuł",
             type: "string",
         },
         {
@@ -16,7 +16,7 @@ const project = {
         },
         {
             name: "image",
-            title: "Image",
+            title: "Zdjęcie",
             type: "image",
             options: { hotspot: true },
             fields: [
@@ -28,17 +28,18 @@ const project = {
             ]
         },
         {
-            name: "url",
-            title: "URL",
-            type: "url"
+            name: "intro",
+            title: "Zajawka",
+            type: "array",
+            of: [{ type: "block" }]
         },
         {
             name: "content",
-            title: "Content",
+            title: "Treść",
             type: "array",
             of: [{ type: "block" }]
         }
     ]
 }
 
-    export default project;
+    export default blog;
