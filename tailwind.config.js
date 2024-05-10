@@ -23,6 +23,7 @@ module.exports = {
       'acc-yellow': '#f1dd01',
       'acc-black': '#000000',
       'acc-blue': '#01386e',
+      'bg-site': '#fefcf9'
     },
     extend: {},
   },

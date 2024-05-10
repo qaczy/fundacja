@@ -1,6 +1,7 @@
 import { getPage } from "@/sanity/sanity-utils";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
+import Link from "next/link";
 
 type Props = {
 	params: { slug: string }
@@ -11,7 +12,7 @@ export default async function Page({ params }: Props) {
 	
 	return ( 
 		<div>
-			
+
 			{/* image */}
 			<Image
 				src={page.image}
