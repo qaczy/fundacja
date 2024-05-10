@@ -1,6 +1,6 @@
 /** @format */
 
-import "../globals.css";
+import "../../globals.css";
 import Link from "next/link";
 import Image from "next/image";
 import { getPages } from "@/sanity/sanity-utils";
@@ -36,9 +36,9 @@ export default async function RootLayout({
 					{/* Navigation */}
 					<nav className="w-2/5 flex justify-around" role="menubar" aria-label="Główne menu strony">
 						<Link 	
-							href="/blog"
+							href="/blogs"
 							role="menuitem" 
-							className="text-xl content-center menuitem">
+							className="text-xl content-center">
 								Blog
 						</Link>
 						{pages.map((page) =>  (
@@ -46,7 +46,7 @@ export default async function RootLayout({
 								key={page._id}
 								href={`/${page.slug}`}
 								role="menuitem" 
-								className="text-xl content-center menuitem">
+								className="text-xl content-center">
 									{page.title}
 							</Link>
 						))}
