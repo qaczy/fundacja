@@ -1,5 +1,5 @@
 import { getBlogs } from "@/sanity/sanity-utils";
-import { getHome } from "@/sanity/sanity-utils";
+import { getHomepage } from "@/sanity/sanity-utils";
 import { PortableText } from "@portabletext/react";
 import Image from 'next/image';
 import Link from 'next/link';
@@ -49,7 +49,7 @@ export default async function Home() {
 					<Link 
 						href={`/blog/${blog.slug}`} 
 						key={blog._id} 
-						className="rounded-3xl shadow-light-grey shadow-md bg-white hover:shadow-xl ease-in-out duration-300"
+						className="rounded-3xl shadow-light-grey shadow-md bg-white hover:shadow-xl ease-out duration-300 hover:-translate-y-2 relative"
 					>
 						
 						{blog.image && (

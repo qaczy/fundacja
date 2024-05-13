@@ -23,15 +23,15 @@ export default defineConfig({
           .items([
             // Our singleton type has a list item with a custom child
             S.listItem()
-              .title("Home")
-              .id("home")
+              .title("Homepage")
+              .id("homepage")
               .child(
                 // Instead of rendering a list of documents, we render a single
                 // document, specifying the `documentId` manually to ensure
                 // that we're editing the single instance of the document
                 S.document()
-                  .schemaType("home")
-                  .documentId("home")
+                  .schemaType("homepage")
+                  .documentId("homepage")
               ),
             // Regular document types
             S.documentTypeListItem("blog").title("Blog"),

@@ -1,13 +1,13 @@
 import { createClient, groq } from "next-sanity";
 import { Blog } from "@/types/Blog";
 import { Page } from "@/types/Page";
-import { Home } from "@/types/Home";
+import { Homepage } from "@/types/Homepage";
 import clientConfig from "./config/client-config";
 
-export async function getHome(): Promise<Home[]> {
+export async function getHomepage(): Promise<Homepage[]> {
 
 	return createClient(clientConfig).fetch(
-		groq`*[_type == "home"]{
+		groq`*[_type == "homepage"]{
 			_id,
 			_createdAt,
 			name,
@@ -35,6 +35,7 @@ export async function getBlogs(): Promise<Blog[]> {
 }
 
 export async function getBlog(slug: string): Promise<Blog> {
+
 	return createClient(clientConfig).fetch(
 		groq`*[_type == "blog" && slug.current == $slug][0]{
 			_id,
@@ -50,6 +51,7 @@ export async function getBlog(slug: string): Promise<Blog> {
 }
 
 export async function getPages(): Promise<Page[]> {
+
 	return createClient(clientConfig).fetch(
 		groq`*[_type == "page"]{
 			_id,
@@ -62,6 +64,7 @@ export async function getPages(): Promise<Page[]> {
 }
 
 export async function getPage(slug: string): Promise<Page> {
+
 	return createClient(clientConfig).fetch(
 		groq`*[_type == "page" && slug.current == $slug][0]{
 			_id,
